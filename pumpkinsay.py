@@ -1,7 +1,9 @@
 import subprocess
 import os
+import random
 
 totalLineCharCount = 40
+ascList = ['ghostasc.txt','pumpkinasc.txt']
 
 def getWordList(fortune):
     wordlist = fortune.split(" ")
@@ -47,7 +49,7 @@ def removeEtc(word):
     return newword.strip('\n\r')
 
 def printPumpkin():
-    command = ['cat', 'pumpkinasc.txt']
+    command = ['cat', random.choice(ascList)]
     p = subprocess.Popen(command, stdout=subprocess.PIPE)
     text = p.stdout.read()
     retcode = p.wait()
